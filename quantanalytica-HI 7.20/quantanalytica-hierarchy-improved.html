@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantAnalytica - 90% Accurate Trading Levels</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+<!-- CSS Files -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="handleLogoClick(event)">QuantAnalytica</a>
+            <ul class="nav-links desktop">
+                <li><a href="#features" onclick="handleNavClick(event, 'features')">Features</a></li>
+                <li><a href="#pricing" onclick="handleNavClick(event, 'pricing')">Pricing</a></li>
+                <li><a href="#proof" onclick="handleNavClick(event, 'proof')">Track Record</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-services">Services ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="showPage('trading-bot')">🤖 Trading Bot</a>
+                        <a href="#" onclick="showPage('signals')">📡 Live Signals</a>
+                        <a href="#" onclick="showPage('backtesting')">📊 Backtesting</a>
+                        <a href="#" onclick="showPage('education')">🎓 Education Hub</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <div id="auth-buttons">
+                    <button class="btn btn-outline" onclick="showLoginModal()">Login</button>
+                    <button class="btn btn-primary" onclick="startFreeTrial()">Start Free Trial</button>
+                </div>
+                <div id="user-menu" class="hidden">
+                    <button class="btn btn-outline" onclick="showPage('dashboard')">Dashboard</button>
+                    <button class="btn btn-outline" onclick="logout()">Logout</button>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Landing Page -->
+        <div id="landing-page" class="page active">
+            <!-- Hero Section -->
+            <section id="hero" class="hero">
+                <div class="hero-content">
+                    <h1>90% Accurate Trading Levels, Delivered Daily</h1>
+                    <p>AI-powered support and resistance levels that professional traders rely on. Join thousands of successful traders using QuantAnalytica.</p>
+                    
+                    <!-- VISUAL HIERARCHY IMPROVEMENT: Simplified to single primary metric -->
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                        </div>
+                    </div>
+
+                    <!-- VISUAL HIERARCHY IMPROVEMENT: Enhanced hero CTA -->
+                    <button class="btn-hero" onclick="startFreeTrial()">
+                        Start Free Trial - 7 Days
+                    </button>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="features">
+                <div class="container">
+                    <h2 class="section-title">Complete Trading Ecosystem</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>90% Accurate Levels</h3>
+                            <p>AI-powered support and resistance levels delivered daily before market open. Backtested across millions of data points.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>Automated Trading Bot</h3>
+                            <p>Let our AI trade for you with 127% average annual returns. Fully automated execution with advanced risk management.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📡</div>
+                            <h3>Live Trading Signals</h3>
+                            <p>Watch our professional traders in real-time. Get instant alerts for every entry, exit, and trade rationale.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🎓</div>
+                            <h3>Trading Education</h3>
+                            <p>Master trading from zero to pro with our comprehensive curriculum. 50+ courses from beginner to advanced strategies.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Strategy Backtesting</h3>
+                            <p>Test 40+ trading strategies with historical data. Professional-grade backtesting platform with real-time results and performance analytics.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Multi-Platform Access</h3>
+                            <p>Access all services on desktop, mobile, and tablet. API access for pro users to integrate with trading platforms.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Performance Analytics</h3>
+                            <p>Track your progress with detailed analytics, win rates, profit/loss tracking, and personalized improvement recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Proof Section -->
+            <section id="proof" class="social-proof">
+                <div class="container">
+                    <h2 class="section-title">See QuantAnalytica in Action</h2>
+                    <div class="proof-grid">
+                        <div class="proof-card">
+                            <div class="stock-preview">
+                                <div class="stock-header">
+                                    <div class="stock-symbol">AAPL</div>
+                                    <div class="stock-price">$187.25</div>
+                                    <div class="price-change">+$2.45 (+1.32%)</div>
+                                </div>
+                                <div class="levels-section">
+                                    <div class="level-group">
+                                        <h4>Support Levels</h4>
+                                        <ul class="level-list">
+                                            <li class="level-item support">$185.50</li>
+                                            <li class="level-item support">$182.75</li>
+                                            <li class="level-item support">$180.00</li>
+                                        </ul>
+                                    </div>
+                                    <div class="level-group">
+                                        <h4>Resistance Levels</h4>
+                                        <ul class="level-list">
+                                            <li class="level-item resistance">$189.50</li>
+                                            <li class="level-item resistance">$192.25</li>
+                                            <li class="level-item resistance">$195.00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accuracy-badge">9/10 Last Calls Accurate</div>
+                        </div>
+
+                        <div class="proof-card">
+                            <div class="stock-preview">
+                                <div class="stock-header">
+                                    <div class="stock-symbol">TSLA</div>
+                                    <div class="stock-price">$208.95</div>
+                                    <div class="price-change">+$5.12 (+2.51%)</div>
+                                </div>
+                                <div class="levels-section">
+                                    <div class="level-group">
+                                        <h4>Support Levels</h4>
+                                        <ul class="level-list">
+                                            <li class="level-item support">$205.75</li>
+                                            <li class="level-item support">$201.50</li>
+                                            <li class="level-item support">$198.25</li>
+                                        </ul>
+                                    </div>
+                                    <div class="level-group">
+                                        <h4>Resistance Levels</h4>
+                                        <ul class="level-list">
+                                            <li class="level-item resistance">$212.50</li>
+                                            <li class="level-item resistance">$218.75</li>
+                                            <li class="level-item resistance">$225.00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accuracy-badge">8/10 Last Calls Accurate</div>
+                        </div>
+
+                        <div class="proof-card">
+                            <div class="stock-preview">
+                                <div class="stock-header">
+                                    <div class="stock-symbol">SPY</div>
+                                    <div class="stock-price">$428.50</div>
+                                    <div class="price-change">+$1.75 (+0.41%)</div>
+                                </div>
+                                <div class="levels-section">
+                                    <div class="level-group">
+                                        <h4>Support Levels</h4>
+                                        <ul class="level-list">
+                                            <li class="level-item support">$425.75</li>
+                                            <li class="level-item support">$422.50</li>
+                                            <li class="level-item support">$420.00</li>
+                                        </ul>
+                                    </div>
+                                    <div class="level-group">
+                                        <h4>Resistance Levels</h4>
+                                        <ul class="level-list">
+                                            <li class="level-item resistance">$431.25</li>
+                                            <li class="level-item resistance">$434.50</li>
+                                            <li class="level-item resistance">$437.00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accuracy-badge">10/10 Last Calls Accurate</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing" class="pricing">
+                <div class="container">
+                    <h2 class="section-title">Choose Your Trading Edge</h2>
+                    <div class="pricing-grid">
+                        <!-- Free Trial -->
+                        <div class="pricing-card">
+                            <div class="plan-header">
+                                <div class="plan-name">Free Trial</div>
+                                <div class="plan-price">$0</div>
+                                <div class="plan-period">7 days free</div>
+                            </div>
+                            <ul class="plan-features">
+                                <li>3 stocks (SPY, QQQ, AAPL)</li>
+                                <li>Daily level updates</li>
+                                <li>Basic support levels</li>
+                                <li>Email delivery</li>
+                                <li>Track record access</li>
+                            </ul>
+                            <div class="plan-action">
+                                <button class="btn btn-outline" onclick="selectPlan('trial')" style="width: 100%;">Start Free Trial</button>
+                            </div>
+                        </div>
+
+                        <!-- Starter -->
+                        <div class="pricing-card">
+                            <div class="plan-header">
+                                <div class="plan-name">Starter</div>
+                                <div class="plan-price">$4.99</div>
+                                <div class="plan-period">per week</div>
+                            </div>
+                            <ul class="plan-features">
+                                <li>5 popular stocks</li>
+                                <li>Key support/resistance levels</li>
+                                <li>Daily updates at 6:30 AM EST</li>
+                                <li>Email & SMS alerts</li>
+                                <li>Basic accuracy tracking</li>
+                            </ul>
+                            <div class="plan-action">
+                                <button class="btn btn-primary" onclick="selectPlan('starter')" style="width: 100%;">Choose Starter</button>
+                            </div>
+                        </div>
+
+                        <!-- VISUAL HIERARCHY IMPROVEMENT: Enhanced featured plan -->
+                        <div class="pricing-card featured">
+                            <div class="plan-badge">Most Popular</div>
+                            <div class="plan-header">
+                                <div class="plan-name">Growth</div>
+                                <div class="plan-price">$9.99</div>
+                                <div class="plan-period">per week</div>
+                            </div>
+                            <ul class="plan-features">
+                                <li>15 stocks of your choice</li>
+                                <li>Intraday + swing levels</li>
+                                <li>Pre-market updates</li>
+                                <li>Priority support</li>
+                                <li>Advanced analytics</li>
+                                <li>Mobile app access</li>
+                            </ul>
+                            <div class="plan-action">
+                                <button class="btn btn-primary" onclick="selectPlan('growth')" style="width: 100%;">Choose Growth</button>
+                            </div>
+                        </div>
+
+                        <!-- Pro -->
+                        <div class="pricing-card">
+                            <div class="plan-header">
+                                <div class="plan-name">Pro</div>
+                                <div class="plan-price">$19.99</div>
+                                <div class="plan-period">per week</div>
+                            </div>
+                            <ul class="plan-features">
+                                <li>50+ stocks unlimited</li>
+                                <li>Sector-wide insights</li>
+                                <li>Early delivery (4:30 AM EST)</li>
+                                <li>Custom watchlists</li>
+                                <li>API access</li>
+                                <li>1-on-1 strategy calls</li>
+                            </ul>
+                            <div class="plan-action">
+                                <button class="btn btn-primary" onclick="selectPlan('pro')" style="width: 100%;">Choose Pro</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="page">
+            <div class="dashboard">
+                <div class="container">
+                    <!-- VISUAL HIERARCHY IMPROVEMENT: Enhanced dashboard header with prominent upgrade button -->
+                    <div class="dashboard-header">
+                        <div class="user-info">
+                            <div class="user-avatar" id="user-avatar">JT</div>
+                            <div>
+                                <h2 id="user-name">John Trader</h2>
+                                <span class="subscription-status status-trial" id="user-status">Free Trial</span>
+                            </div>
+                        </div>
+                        <div id="dashboard-action-button">
+                            <button class="btn-upgrade" onclick="showUpgradeModal()" id="upgrade-btn">Upgrade Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Subscription Card -->
+                        <div class="dashboard-card">
+                            <h3 class="card-title">📊 Subscription</h3>
+                            <div id="subscription-info">
+                                <p><strong>Plan:</strong> <span id="current-plan">Free Trial</span></p>
+                                <p><strong>Status:</strong> <span id="plan-status">Active</span></p>
+                                <p><strong>Days Remaining:</strong> <span id="days-remaining">6 days</span></p>
+                                <p><strong>Next Billing:</strong> <span id="next-billing">January 25, 2025</span></p>
+                            </div>
+                            <button class="btn btn-outline" onclick="manageBilling()" style="width: 100%; margin-top: 1rem;">Manage Billing</button>
+                        </div>
+
+                        <!-- Stock Preferences -->
+                        <div class="dashboard-card">
+                            <h3 class="card-title">🎯 Stock Preferences</h3>
+                            <div class="stock-input-section">
+                                <label class="form-label">Add stocks to your watchlist:</label>
+                                <input type="text" class="stock-input" id="stock-input" placeholder="Enter ticker (e.g., AAPL)" maxlength="10">
+                                <button class="btn btn-primary" onclick="addStock()" style="width: 100%;">Add Stock</button>
+                                <div class="stock-tags" id="stock-tags">
+                                    <!-- Stock tags will be populated here -->
+                                </div>
+                                <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">
+                                    <span id="stock-limit-text">Free Trial: 3 stocks maximum</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Performance Stats -->
+                        <div class="dashboard-card">
+                            <h3 class="card-title">📈 Your Performance</h3>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--success);">92%</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-muted);">Accuracy Rate</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">23</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-muted);">Trades Tracked</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--success);">+$2,847</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-muted);">Profit/Loss</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">7</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-muted);">Days Active</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trading Levels -->
+                    <div style="margin-top: 2rem;">
+                        <h3 class="section-title" style="text-align: left;">Today's Trading Levels</h3>
+                        <div class="levels-grid" id="levels-grid">
+                            <!-- Level cards will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trading Bot Service Page -->
+        <div id="trading-bot-page" class="page">
+            <div class="service-hero">
+                <div class="container">
+                    <div class="service-hero-content">
+                        <div class="service-badge">🤖 Automated Trading</div>
+                        <h1>Let Our AI Trade For You</h1>
+                        <p>Advanced algorithmic trading bot that executes trades based on our 90% accurate levels. Fully automated, professionally managed, transparent results.</p>
+                        <div class="service-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">127%</div>
+                                <div class="stat-label">Average Annual Return</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">94%</div>
+                                <div class="stat-label">Win Rate</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">$500</div>
+                                <div class="stat-label">Minimum Investment</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn-hero" onclick="showComingSoonModal('Trading Bot')">Start Trading - Coming Soon</button>
+                            <button class="btn btn-outline" onclick="joinWaitlist('trading-bot')">Join Waitlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-features">
+                <div class="container">
+                    <h2 class="section-title">How Our Trading Bot Works</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Instant Execution</h3>
+                            <p>Trades execute within milliseconds of signal generation, ensuring optimal entry and exit points.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Risk Management</h3>
+                            <p>Advanced position sizing and stop-loss algorithms protect your capital in volatile markets.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Real-Time Analytics</h3>
+                            <p>Monitor performance, drawdown, and profit/loss in real-time through our advanced dashboard.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔐</div>
+                            <h3>Secure & Regulated</h3>
+                            <p>Your funds remain in your brokerage account. We never have access to withdraw your money.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Multi-Strategy Approach</h3>
+                            <p>Combines swing trading, scalping, and momentum strategies for consistent returns.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Backtested Performance</h3>
+                            <p>Strategies tested on 5+ years of historical data with consistent profitability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Signals Service Page -->
+        <div id="signals-page" class="page">
+            <div class="service-hero">
+                <div class="container">
+                    <div class="service-hero-content">
+                        <div class="service-badge">📡 Live Trading Signals</div>
+                        <h1>Watch Our Traders In Action</h1>
+                        <p>Real-time trade alerts from our professional trading team. See every entry, exit, and profit in real-time. Learn from the best while earning alongside us.</p>
+                        <div class="service-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">Signal Accuracy</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15-25</div>
+                                <div class="stat-label">Signals Per Day</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">< 3s</div>
+                                <div class="stat-label">Alert Delivery Time</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn-hero" onclick="showComingSoonModal('Live Signals')">Get Live Signals - Coming Soon</button>
+                            <button class="btn btn-outline" onclick="joinWaitlist('signals')">Join Waitlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-features">
+                <div class="container">
+                    <h2 class="section-title">What You Get With Live Signals</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Instant Notifications</h3>
+                            <p>Get trade alerts via SMS, email, Discord, and mobile app notifications in real-time.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💡</div>
+                            <h3>Trade Rationale</h3>
+                            <p>Every signal includes the reasoning, support/resistance levels, and risk management strategy.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📺</div>
+                            <h3>Live Trading Room</h3>
+                            <p>Watch our traders' screens live during market hours with audio commentary.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📋</div>
+                            <h3>Trade Journal Access</h3>
+                            <p>Review every trade with entry/exit points, profit/loss, and lessons learned.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎓</div>
+                            <h3>Educational Content</h3>
+                            <p>Learn trading psychology, risk management, and technical analysis from pros.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>Community Access</h3>
+                            <p>Join exclusive Discord community with other signal followers and mentors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backtesting Service Page -->
+        <div id="backtesting-page" class="page">
+            <div class="service-hero">
+                <div class="container">
+                    <div class="service-hero-content">
+                        <div class="service-badge">📊 Strategy Backtesting</div>
+                        <h1>Backtest Your Trading Strategies</h1>
+                        <p>Professional-grade backtesting platform to validate your trading strategies with historical data. Test 40+ pre-built strategies or upload your own data.</p>
+                        <div class="service-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">40+</div>
+                                <div class="stat-label">Built-in Strategies</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5+ Years</div>
+                                <div class="stat-label">Historical Data</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">Real-time</div>
+                                <div class="stat-label">Results & Charts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="backtesting-platform">
+                <div class="container">
+                    <div class="backtesting-grid">
+                        <div class="control-panel">
+                            <div class="panel-section">
+                                <h3 class="panel-title">📁 Data Input</h3>
+                                <div class="form-group">
+                                    <label for="dataFile">Upload Historical Data (CSV)</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="dataFile" accept=".csv" />
+                                        <label for="dataFile" class="file-upload-label">
+                                            📁 Click to upload CSV file
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Data Status</label>
+                                    <div id="dataStatus" class="status-display">
+                                        <span class="status-indicator status-warning"></span>
+                                        No data loaded
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-section">
+                                <h3 class="panel-title">⚡ Strategy Selection</h3>
+                                <div class="form-group">
+                                    <label for="strategy">Trading Strategy</label>
+                                    <select id="strategy" class="form-input">
+                                        <option value="">Select a strategy...</option>
+                                        <option value="sma_crossover">Simple Moving Average Crossover</option>
+                                        <option value="ema_crossover">Exponential Moving Average Crossover</option>
+                                        <option value="rsi_overbought_oversold">RSI Overbought/Oversold</option>
+                                        <option value="macd_signal">MACD Signal Crossover</option>
+                                        <option value="bollinger_bands">Bollinger Bands</option>
+                                        <option value="stochastic_oscillator">Stochastic Oscillator</option>
+                                        <option value="williams_r">Williams %R</option>
+                                        <option value="momentum_strategy">Momentum Strategy</option>
+                                        <option value="mean_reversion">Mean Reversion</option>
+                                        <option value="breakout_strategy">Breakout Strategy</option>
+                                        <option value="support_resistance">Support/Resistance Levels</option>
+                                        <option value="swing_high_low">Swing High/Low</option>
+                                        <option value="fibonacci_retracement">Fibonacci Retracement</option>
+                                        <option value="ichimoku_cloud">Ichimoku Cloud</option>
+                                        <option value="parabolic_sar">Parabolic SAR</option>
+                                        <option value="volume_price_trend">Volume Price Trend</option>
+                                        <option value="on_balance_volume">On-Balance Volume</option>
+                                        <option value="accumulation_distribution">Accumulation/Distribution</option>
+                                        <option value="money_flow_index">Money Flow Index</option>
+                                        <option value="commodity_channel_index">Commodity Channel Index</option>
+                                        <option value="average_true_range">Average True Range</option>
+                                        <option value="keltner_channels">Keltner Channels</option>
+                                        <option value="donchian_channels">Donchian Channels</option>
+                                        <option value="triple_moving_average">Triple Moving Average</option>
+                                        <option value="golden_cross">Golden Cross</option>
+                                        <option value="death_cross">Death Cross</option>
+                                        <option value="turtle_trading">Turtle Trading System</option>
+                                        <option value="scalping_strategy">Scalping Strategy</option>
+                                        <option value="gap_trading">Gap Trading</option>
+                                        <option value="pairs_trading">Pairs Trading</option>
+                                        <option value="arbitrage_strategy">Arbitrage Strategy</option>
+                                        <option value="contrarian_strategy">Contrarian Strategy</option>
+                                        <option value="trend_following">Trend Following</option>
+                                        <option value="channel_trading">Channel Trading</option>
+                                        <option value="reversal_patterns">Reversal Patterns</option>
+                                        <option value="continuation_patterns">Continuation Patterns</option>
+                                        <option value="hammer_doji">Hammer/Doji Patterns</option>
+                                        <option value="engulfing_patterns">Engulfing Patterns</option>
+                                        <option value="morning_evening_star">Morning/Evening Star</option>
+                                        <option value="three_white_soldiers">Three White Soldiers</option>
+                                        <option value="three_black_crows">Three Black Crows</option>
+                                        <option value="inside_bar">Inside Bar Strategy</option>
+                                        <option value="outside_bar">Outside Bar Strategy</option>
+                                        <option value="pin_bar">Pin Bar Strategy</option>
+                                        <option value="double_top_bottom">Double Top/Bottom</option>
+                                        <option value="head_shoulders">Head and Shoulders</option>
+                                        <option value="triangle_patterns">Triangle Patterns</option>
+                                        <option value="flag_pennant">Flag/Pennant Patterns</option>
+                                        <option value="cup_handle">Cup and Handle</option>
+                                        <option value="wedge_patterns">Wedge Patterns</option>
+                                        <option value="rounding_patterns">Rounding Patterns</option>
+                                    </select>
+                                </div>
+                                <div id="strategyDescription" class="strategy-description" style="display: none;"></div>
+                            </div>
+
+                            <div class="panel-section">
+                                <h3 class="panel-title">⚙️ Parameters</h3>
+                                <div id="parameters" class="parameter-grid">
+                                    <div class="form-group">
+                                        <label>Select a strategy to configure parameters</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-section">
+                                <h3 class="panel-title">💰 Backtest Settings</h3>
+                                <div class="parameter-grid">
+                                    <div class="form-group">
+                                        <label for="initialCapital">Initial Capital ($)</label>
+                                        <input type="number" id="initialCapital" class="form-input" value="10000" min="1000" step="1000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="positionSize">Position Size (%)</label>
+                                        <input type="number" id="positionSize" class="form-input" value="10" min="1" max="100" step="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="commission">Commission (%)</label>
+                                        <input type="number" id="commission" class="form-input" value="0.1" min="0" max="5" step="0.05">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="slippage">Slippage (%)</label>
+                                        <input type="number" id="slippage" class="form-input" value="0.05" min="0" max="1" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary backtest-btn" onclick="runBacktest()">
+                                🚀 Run Backtest
+                            </button>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="priceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="results-section" id="resultsSection" style="display: none;">
+                        <h3 class="section-title">Backtest Results</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <h4>Total Return</h4>
+                                <div class="result-value" id="totalReturn">--</div>
+                                <div class="result-description">Absolute return percentage</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Sharpe Ratio</h4>
+                                <div class="result-value" id="sharpeRatio">--</div>
+                                <div class="result-description">Risk-adjusted returns</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Max Drawdown</h4>
+                                <div class="result-value" id="maxDrawdown">--</div>
+                                <div class="result-description">Maximum peak-to-trough decline</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Win Rate</h4>
+                                <div class="result-value" id="winRate">--</div>
+                                <div class="result-description">Percentage of winning trades</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Total Trades</h4>
+                                <div class="result-value" id="totalTrades">--</div>
+                                <div class="result-description">Number of executed trades</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Profit Factor</h4>
+                                <div class="result-value" id="profitFactor">--</div>
+                                <div class="result-description">Gross profit / Gross loss</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Hub Page -->
+        <div id="education-page" class="page">
+            <div class="service-hero">
+                <div class="container">
+                    <div class="service-hero-content">
+                        <div class="service-badge">🎓 Trading Education</div>
+                        <h1>Master Trading From Zero to Pro</h1>
+                        <p>Comprehensive trading education from beginner basics to advanced strategies. Learn from profitable traders with proven track records.</p>
+                        <div class="service-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Video Courses</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5,000+</div>
+                                <div class="stat-label">Students Taught</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">4.8/5</div>
+                                <div class="stat-label">Average Rating</div>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <button class="btn-hero" onclick="showComingSoonModal('Education Hub')">Start Learning - Coming Soon</button>
+                            <button class="btn btn-outline" onclick="joinWaitlist('education')">Join Waitlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-features">
+                <div class="container">
+                    <h2 class="section-title">Complete Trading Curriculum</h2>
+                    <div class="education-tracks">
+                        <div class="track-card">
+                            <div class="track-level">Beginner</div>
+                            <h3>Trading Fundamentals</h3>
+                            <div class="track-duration">4-6 weeks</div>
+                            <ul class="track-topics">
+                                <li>Market basics and terminology</li>
+                                <li>How to read charts and candlesticks</li>
+                                <li>Support and resistance identification</li>
+                                <li>Risk management principles</li>
+                                <li>Platform setup and order types</li>
+                            </ul>
+                            <div class="track-price">$197</div>
+                        </div>
+                        
+                        <div class="track-card featured">
+                            <div class="track-badge">Most Popular</div>
+                            <div class="track-level">Intermediate</div>
+                            <h3>Technical Analysis Mastery</h3>
+                            <div class="track-duration">8-10 weeks</div>
+                            <ul class="track-topics">
+                                <li>Advanced chart patterns</li>
+                                <li>Indicator combinations and signals</li>
+                                <li>Volume analysis and market structure</li>
+                                <li>Multiple timeframe analysis</li>
+                                <li>Psychology and emotional control</li>
+                            </ul>
+                            <div class="track-price">$497</div>
+                        </div>
+                        
+                        <div class="track-card">
+                            <div class="track-level">Advanced</div>
+                            <h3>Professional Trading</h3>
+                            <div class="track-duration">12-16 weeks</div>
+                            <ul class="track-topics">
+                                <li>Advanced options strategies</li>
+                                <li>Algorithmic trading basics</li>
+                                <li>Portfolio management</li>
+                                <li>Tax optimization strategies</li>
+                                <li>Building trading systems</li>
+                            </ul>
+                            <div class="track-price">$997</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Sign In to QuantAnalytica</h3>
+                <button class="close-btn" onclick="hideModal('login-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="background: #f0f4ff; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.875rem;">
+                        📊 Sign in to start your <strong>free 7-day trial</strong> and access live trading levels
+                    </p>
+                </div>
+                <button class="btn btn-primary" onclick="signInWithGoogle()" style="width: 100%; margin-bottom: 1rem;">
+                    <span>🌐</span> Continue with Google
+                </button>
+                <div style="text-align: center; color: var(--text-muted); margin: 1rem 0;">or</div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                </form>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="#" style="color: var(--primary); text-decoration: none;">Create Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upgrade Modal -->
+    <div id="upgrade-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Upgrade Your Plan</h3>
+                <button class="close-btn" onclick="hideModal('upgrade-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: grid; gap: 1.5rem;">
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <div class="plan-name">Starter</div>
+                            <div class="plan-price">$4.99<span style="font-size: 1rem; font-weight: normal;">/week</span></div>
+                        </div>
+                        <ul class="plan-features" style="margin-bottom: 1rem;">
+                            <li>5 popular stocks</li>
+                            <li>Daily updates</li>
+                            <li>Email alerts</li>
+                        </ul>
+                        <div class="plan-action">
+                            <button class="btn btn-primary" onclick="selectPlan('starter')" style="width: 100%;">
+                                Choose Starter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="plan-header">
+                            <div class="plan-badge">Recommended</div>
+                            <div class="plan-name">Growth</div>
+                            <div class="plan-price">$9.99<span style="font-size: 1rem; font-weight: normal;">/week</span></div>
+                        </div>
+                        <ul class="plan-features" style="margin-bottom: 1rem;">
+                            <li>15 stocks of choice</li>
+                            <li>Intraday levels</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <div class="plan-action">
+                            <button class="btn btn-primary" onclick="selectPlan('growth')" style="width: 100%;">
+                                Choose Growth
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <div class="plan-name">Pro</div>
+                            <div class="plan-price">$19.99<span style="font-size: 1rem; font-weight: normal;">/week</span></div>
+                        </div>
+                        <ul class="plan-features" style="margin-bottom: 1rem;">
+                            <li>50+ stocks unlimited</li>
+                            <li>Early delivery</li>
+                            <li>API access</li>
+                        </ul>
+                        <div class="plan-action">
+                            <button class="btn btn-primary" onclick="selectPlan('pro')" style="width: 100%;">
+                                Choose Pro
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button class="btn btn-outline" onclick="hideModal('upgrade-modal')" style="min-width: 120px;">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal (Stripe-style) -->
+    <div id="payment-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Complete Your Purchase</h3>
+                <button class="close-btn" onclick="hideModal('payment-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Order Summary -->
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; border: 1px solid #e2e8f0;">
+                    <h4 style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 600;">Order Summary</h4>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span id="payment-plan-name">Growth Plan</span>
+                        <span id="payment-plan-price" style="font-weight: 600;">$9.99</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: var(--text-muted);">
+                        <span>Billing cycle</span>
+                        <span>Weekly</span>
+                    </div>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.1rem;">
+                        <span>Total</span>
+                        <span id="payment-total">$9.99</span>
+                    </div>
+                </div>
+
+                <!-- Payment Form -->
+                <div id="payment-form">
+                    <h4 style="margin: 0 0 1.5rem 0; font-size: 1.1rem; font-weight: 600;">Payment Information</h4>
+                    
+                    <!-- Card Details -->
+                    <div class="form-group">
+                        <label class="form-label">Card Number</label>
+                        <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" 
+                               style="font-family: monospace; background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"16\" viewBox=\"0 0 20 16\"><rect width=\"20\" height=\"16\" rx=\"2\" fill=\"%234F46E5\"/><text x=\"10\" y=\"11\" text-anchor=\"middle\" fill=\"white\" font-size=\"8\" font-family=\"monospace\">CARD</text></svg>') no-repeat right 12px center; background-size: 30px 20px; padding-right: 50px;">
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Expiry Date</label>
+                            <input type="text" class="form-input" placeholder="MM/YY" maxlength="5" style="font-family: monospace;">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">CVC</label>
+                            <input type="text" class="form-input" placeholder="123" maxlength="4" style="font-family: monospace;">
+                        </div>
+                    </div>
+
+                    <!-- Billing Details -->
+                    <h4 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 600;">Billing Details</h4>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" value="john.trader@gmail.com" readonly style="background: #f8fafc;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="John Trader">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Country</label>
+                        <select class="form-input">
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>United Kingdom</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Security Notice -->
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; border: 1px solid #bae6fd;">
+                        <span style="color: #0369a1;">🔒</span>
+                        <span style="font-size: 0.875rem; color: #0369a1;">Your payment is secured with 256-bit SSL encryption</span>
+                    </div>
+
+                    <!-- Pay Button -->
+                    <button id="pay-button" onclick="processPayment()" class="btn btn-primary" 
+                            style="width: 100%; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 700; margin-top: 1rem;">
+                        Complete Payment
+                    </button>
+                    
+                    <!-- Back Button -->
+                    <button onclick="goBackToUpgrade()" class="btn btn-outline" 
+                            style="width: 100%; padding: 0.75rem 1.5rem; margin-top: 0.5rem;">
+                        ← Back to Plans
+                    </button>
+                    
+                    <!-- Powered by Stripe -->
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Powered by</span>
+                        <strong style="color: #635bff; font-size: 0.875rem; margin-left: 0.25rem;">Stripe</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <div class="modal-body" style="padding: 3rem 2rem;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);">
+                    <span style="font-size: 2.5rem;">✓</span>
+                </div>
+                <h3 style="margin: 0 0 1rem 0; font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">Payment Successful!</h3>
+                <p style="margin: 0 0 2rem 0; color: var(--text-secondary); line-height: 1.6;">
+                    Welcome to QuantAnalytica <span id="success-plan-name" style="font-weight: 600;"></span>! 
+                    You now have access to advanced trading levels and premium features.
+                </p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.875rem;">
+                    <span>Redirecting to dashboard...</span>
+                    <div class="loading" style="width: 16px; height: 16px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div id="coming-soon-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 500px; text-align: center;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="coming-soon-title">Feature Coming Soon</h3>
+                <button class="close-btn" onclick="hideModal('coming-soon-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);">
+                    <span style="font-size: 2.5rem;">🚀</span>
+                </div>
+                <h3 style="margin: 0 0 1rem 0; font-size: 1.5rem; font-weight: 700; color: var(--text-primary);" id="coming-soon-service">This Feature</h3>
+                <p style="margin: 0 0 2rem 0; color: var(--text-secondary); line-height: 1.6;">
+                    We're working hard to bring you this amazing feature. Join our waitlist to be the first to know when it launches!
+                </p>
+                
+                <!-- Waitlist Form -->
+                <form id="waitlist-form" style="margin-bottom: 1rem;">
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Enter your email address" required style="margin-bottom: 1rem;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Join Waitlist
+                    </button>
+                </form>
+                
+                <div style="font-size: 0.875rem; color: var(--text-muted);">
+                    ✨ Get early access and special launch pricing
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Waitlist Success Modal -->
+    <div id="waitlist-success-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <div class="modal-body" style="padding: 3rem 2rem;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);">
+                    <span style="font-size: 2.5rem;">✓</span>
+                </div>
+                <h3 style="margin: 0 0 1rem 0; font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">You're In!</h3>
+                <p style="margin: 0 0 2rem 0; color: var(--text-secondary); line-height: 1.6;">
+                    Thanks for joining the waitlist! We'll notify you as soon as <span id="waitlist-service-name">this feature</span> is ready.
+                </p>
+                <button class="btn btn-primary" onclick="hideModal('waitlist-success-modal')" style="width: 100%;">
+                    Got It
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Billing Modal -->
+    <div id="billing-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Billing Management</h3>
+                <button class="close-btn" onclick="hideModal('billing-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success">
+                    <strong>Current Plan:</strong> <span id="billing-current-plan">Free Trial</span><br>
+                    <strong>Status:</strong> Active<br>
+                    <strong>Next Billing:</strong> <span id="billing-next-date">January 25, 2025</span>
+                </div>
+                <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                    <button class="btn btn-outline" onclick="updatePaymentMethod()">Update Payment Method</button>
+                    <button class="btn btn-outline" onclick="downloadInvoices()">Download Invoices</button>
+                    <button class="btn btn-danger" onclick="cancelSubscription()">Cancel Subscription</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // App State
+        let currentUser = null;
+        let currentPage = 'landing';
+        let userStocks = ['SPY', 'QQQ', 'AAPL']; // Default trial stocks
+
+        // Mock Stock Data
+        const stockData = {
+            'AAPL': {
+                symbol: 'AAPL',
+                name: 'Apple Inc.',
+                currentPrice: 187.25,
+                change: '+2.45 (+1.32%)',
+                changeType: 'positive',
+                support: [185.50, 182.75, 180.00],
+                resistance: [189.50, 192.25, 195.00],
+                accuracy: { correct: 9, total: 10 },
+                lastUpdated: '2025-01-18T06:30:00Z'
+            },
+            'TSLA': {
+                symbol: 'TSLA',
+                name: 'Tesla Inc.',
+                currentPrice: 208.95,
+                change: '+5.12 (+2.51%)',
+                changeType: 'positive',
+                support: [205.75, 201.50, 198.25],
+                resistance: [212.50, 218.75, 225.00],
+                accuracy: { correct: 8, total: 10 },
+                lastUpdated: '2025-01-18T06:30:00Z'
+            },
+            'SPY': {
+                symbol: 'SPY',
+                name: 'SPDR S&P 500 ETF',
+                currentPrice: 428.50,
+                change: '+1.75 (+0.41%)',
+                changeType: 'positive',
+                support: [425.75, 422.50, 420.00],
+                resistance: [431.25, 434.50, 437.00],
+                accuracy: { correct: 10, total: 10 },
+                lastUpdated: '2025-01-18T06:30:00Z'
+            },
+            'QQQ': {
+                symbol: 'QQQ',
+                name: 'Invesco QQQ ETF',
+                currentPrice: 362.18,
+                change: '+3.24 (+0.90%)',
+                changeType: 'positive',
+                support: [358.75, 355.50, 352.00],
+                resistance: [365.50, 368.75, 372.00],
+                accuracy: { correct: 9, total: 10 },
+                lastUpdated: '2025-01-18T06:30:00Z'
+            },
+            'GOOGL': {
+                symbol: 'GOOGL',
+                name: 'Alphabet Inc.',
+                currentPrice: 153.84,
+                change: '+1.67 (+1.10%)',
+                changeType: 'positive',
+                support: [151.25, 148.75, 146.00],
+                resistance: [156.50, 159.25, 162.00],
+                accuracy: { correct: 8, total: 10 },
+                lastUpdated: '2025-01-18T06:30:00Z'
+            },
+            'MSFT': {
+                symbol: 'MSFT',
+                name: 'Microsoft Corp.',
+                currentPrice: 412.33,
+                change: '+4.18 (+1.02%)',
+                changeType: 'positive',
+                support: [408.50, 405.25, 402.00],
+                resistance: [415.75, 419.25, 423.00],
+                accuracy: { correct: 9, total: 10 },
+                lastUpdated: '2025-01-18T06:30:00Z'
+            }
+        };
+
+        // Plan Configurations
+        const planConfigs = {
+            trial: { stockLimit: 3, name: 'Free Trial' },
+            starter: { stockLimit: 5, name: 'Starter' },
+            growth: { stockLimit: 15, name: 'Growth' },
+            pro: { stockLimit: 50, name: 'Pro' }
+        };
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('QuantAnalytica app initializing...');
+            
+            try {
+                loadUserSession();
+                updateStockTags();
+                updateLevelsGrid();
+                setupFormHandlers();
+                
+                console.log('QuantAnalytica app initialized successfully');
+            } catch (error) {
+                console.error('Error initializing app:', error);
+            }
+        });
+
+        function setupFormHandlers() {
+            // Setup form handlers
+            const loginForm = document.getElementById('login-form');
+            const stockInput = document.getElementById('stock-input');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', handleLogin);
+            }
+            
+            if (stockInput) {
+                stockInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        addStock();
+                    }
+                });
+            }
+
+            // Setup payment form handlers
+            setupPaymentFormHandlers();
+            
+            // Setup waitlist form handler - use event delegation for dynamic content
+            document.addEventListener('submit', function(e) {
+                if (e.target && e.target.id === 'waitlist-form') {
+                    handleWaitlistSubmit(e);
+                }
+            });
+            
+            // Setup scroll spy for navigation
+            setupScrollSpy();
+            
+            // Initialize backtesting if on that page
+            if (currentPage === 'backtesting') {
+                setTimeout(initializeBacktesting, 100);
+            }
+        }
+
+        function setupPaymentFormHandlers() {
+            // Card number formatting
+            document.addEventListener('input', function(e) {
+                if (e.target.placeholder === '1234 5678 9012 3456') {
+                    let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                    let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                    e.target.value = formattedValue;
+                }
+                
+                // Expiry date formatting
+                if (e.target.placeholder === 'MM/YY') {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    }
+                    e.target.value = value;
+                }
+                
+                // CVC formatting
+                if (e.target.placeholder === '123') {
+                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                }
+            });
+        }
+
+        // Authentication Functions
+        function signInWithGoogle() {
+            const button = event.target;
+            
+            // Show immediate feedback
+            button.innerHTML = '🔄 Connecting to Google...';
+            button.disabled = true;
+            
+            // Simulate Google OAuth flow (reduced delay)
+            setTimeout(() => {
+                const mockUser = {
+                    id: 'user_123',
+                    name: 'John Trader',
+                    email: 'john.trader@gmail.com',
+                    avatar: 'https://lh3.googleusercontent.com/a/default-user',
+                    subscription: {
+                        plan: 'trial',
+                        status: 'active',
+                        trialEnds: new Date(Date.now() + 6 * 24 * 60 * 60 * 1000).toISOString(),
+                        billingCycle: 'weekly'
+                    },
+                    preferences: {
+                        stocks: ['SPY', 'QQQ', 'AAPL'],
+                        notifications: { email: true, sms: false }
+                    },
+                    createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+                };
+                
+                button.innerHTML = '✅ Success! Redirecting...';
+                
+                setTimeout(() => {
+                    loginUser(mockUser);
+                    hideModal('login-modal');
+                    showPage('dashboard');
+                    
+                    // Reset button state
+                    button.innerHTML = '<span>🌐</span> Continue with Google';
+                    button.disabled = false;
+                }, 500);
+            }, 800); // Reduced from 1500ms to 800ms
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            signInWithGoogle(); // For demo, redirect to Google auth
+        }
+
+        function loginUser(user) {
+            currentUser = user;
+            userStocks = user.preferences.stocks;
+            localStorage.setItem('quantanalytica_user', JSON.stringify(user));
+            updateAuthUI();
+            updateUserDashboard();
+        }
+
+        function logout() {
+            currentUser = null;
+            userStocks = ['SPY', 'QQQ', 'AAPL'];
+            localStorage.removeItem('quantanalytica_user');
+            updateAuthUI();
+            showPage('landing');
+        }
+
+        function loadUserSession() {
+            const savedUser = localStorage.getItem('quantanalytica_user');
+            if (savedUser) {
+                loginUser(JSON.parse(savedUser));
+            }
+        }
+
+        function updateAuthUI() {
+            const authButtons = document.getElementById('auth-buttons');
+            const userMenu = document.getElementById('user-menu');
+            
+            if (currentUser) {
+                authButtons.classList.add('hidden');
+                userMenu.classList.remove('hidden');
+            } else {
+                authButtons.classList.remove('hidden');
+                userMenu.classList.add('hidden');
+            }
+        }
+
+        // Navigation Functions
+        function showPage(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageName + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active');
+                currentPage = pageName;
+            }
+            
+            // Update dashboard if switching to it
+            if (pageName === 'dashboard' && currentUser) {
+                updateUserDashboard();
+                updateLevelsGrid();
+            }
+            
+            // Initialize backtesting if switching to it
+            if (pageName === 'backtesting') {
+                setTimeout(initializeBacktesting, 100);
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                // Calculate offset for fixed navbar (80px height + some padding)
+                const navbarHeight = 100;
+                const elementPosition = element.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function handleLogoClick(e) {
+            e.preventDefault();
+            
+            // If we're on the landing page, scroll to top
+            if (currentPage === 'landing') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                updateActiveNavLink('hero');
+            } else {
+                // Otherwise, navigate to landing page
+                showPage('landing');
+            }
+        }
+
+        // Enhanced navigation handling
+        function handleNavClick(e, sectionId) {
+            e.preventDefault(); // Prevent default link behavior
+            
+            // If we're not on the landing page, go there first
+            if (currentPage !== 'landing') {
+                showPage('landing');
+                // Wait for page transition, then scroll
+                setTimeout(() => {
+                    scrollToSection(sectionId);
+                    updateActiveNavLink(sectionId);
+                }, 100);
+            } else {
+                scrollToSection(sectionId);
+                updateActiveNavLink(sectionId);
+            }
+        }
+
+        function updateActiveNavLink(activeSectionId) {
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current section link
+            const activeLink = document.querySelector(`.nav-links a[href="#${activeSectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Intersection Observer for automatic navigation highlighting
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+            
+            if (sections.length === 0) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateActiveNavLink(entry.target.id);
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '-100px 0px -50% 0px'
+            });
+            
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // Modal Functions
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                // Prevent body scroll when modal is open
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function hideModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                // Restore body scroll
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function showLoginModal() {
+            showModal('login-modal');
+        }
+
+        function showUpgradeModal() {
+            showModal('upgrade-modal');
+        }
+
+        // Stock Management Functions
+        function addStock() {
+            const input = document.getElementById('stock-input');
+            const ticker = input.value.toUpperCase().trim();
+            
+            if (!ticker) return;
+            
+            // Validate ticker format
+            if (!/^[A-Z]{1,5}$/.test(ticker)) {
+                alert('Please enter a valid stock ticker (1-5 letters)');
+                return;
+            }
+            
+            // Check if already exists
+            if (userStocks.includes(ticker)) {
+                alert('Stock already in your watchlist');
+                input.value = '';
+                return;
+            }
+            
+            // Check stock limit
+            const currentPlan = currentUser?.subscription?.plan || 'trial';
+            const limit = planConfigs[currentPlan].stockLimit;
+            
+            if (userStocks.length >= limit) {
+                alert(`Stock limit reached for ${planConfigs[currentPlan].name} plan (${limit} stocks)`);
+                return;
+            }
+            
+            // Add to watchlist
+            userStocks.push(ticker);
+            input.value = '';
+            
+            // Update UI
+            updateStockTags();
+            updateLevelsGrid();
+            saveUserPreferences();
+            
+            // Show mock data for new stocks if not in our data
+            if (!stockData[ticker]) {
+                stockData[ticker] = generateMockStockData(ticker);
+            }
+        }
+
+        function removeStock(ticker) {
+            userStocks = userStocks.filter(stock => stock !== ticker);
+            updateStockTags();
+            updateLevelsGrid();
+            saveUserPreferences();
+        }
+
+        function updateStockTags() {
+            const container = document.getElementById('stock-tags');
+            const limitText = document.getElementById('stock-limit-text');
+            
+            if (!container) return;
+            
+            // Clear existing tags
+            container.innerHTML = '';
+            
+            // Add stock tags
+            userStocks.forEach(stock => {
+                const tag = document.createElement('div');
+                tag.className = 'stock-tag';
+                tag.innerHTML = `
+                    ${stock}
+                    <button class="remove-stock" onclick="removeStock('${stock}')">&times;</button>
+                `;
+                container.appendChild(tag);
+            });
+            
+            // Update limit text
+            if (limitText) {
+                const currentPlan = currentUser?.subscription?.plan || 'trial';
+                const config = planConfigs[currentPlan];
+                limitText.textContent = `${config.name}: ${userStocks.length}/${config.stockLimit} stocks`;
+            }
+        }
+
+        function generateMockStockData(ticker) {
+            const basePrice = Math.random() * 500 + 50;
+            const change = (Math.random() - 0.5) * 10;
+            const changePercent = (change / basePrice * 100).toFixed(2);
+            
+            return {
+                symbol: ticker,
+                name: `${ticker} Corp.`,
+                currentPrice: basePrice.toFixed(2),
+                change: `${change >= 0 ? '+' : ''}${change.toFixed(2)} (${change >= 0 ? '+' : ''}${changePercent}%)`,
+                changeType: change >= 0 ? 'positive' : 'negative',
+                support: [
+                    (basePrice * 0.97).toFixed(2),
+                    (basePrice * 0.94).toFixed(2),
+                    (basePrice * 0.91).toFixed(2)
+                ],
+                resistance: [
+                    (basePrice * 1.03).toFixed(2),
+                    (basePrice * 1.06).toFixed(2),
+                    (basePrice * 1.09).toFixed(2)
+                ],
+                accuracy: { correct: Math.floor(Math.random() * 3) + 7, total: 10 },
+                lastUpdated: new Date().toISOString()
+            };
+        }
+
+        // Dashboard Functions
+        function updateUserDashboard() {
+            if (!currentUser) return;
+            
+            // Update user info
+            document.getElementById('user-name').textContent = currentUser.name;
+            document.getElementById('user-avatar').textContent = currentUser.name.split(' ').map(n => n[0]).join('');
+            
+            // Update subscription info
+            const plan = currentUser.subscription.plan;
+            const planName = planConfigs[plan].name;
+            document.getElementById('current-plan').textContent = planName;
+            
+            // Update status badge
+            const statusElement = document.getElementById('user-status');
+            statusElement.textContent = planName;
+            
+            // Update status class based on plan
+            statusElement.className = 'subscription-status';
+            if (plan === 'trial') {
+                statusElement.classList.add('status-trial');
+            } else {
+                statusElement.classList.add('status-active');
+            }
+            
+            // Calculate days remaining
+            const trialEnd = new Date(currentUser.subscription.trialEnds);
+            const now = new Date();
+            const daysRemaining = Math.ceil((trialEnd - now) / (1000 * 60 * 60 * 24));
+            
+            // Update days remaining text based on plan
+            if (plan === 'trial') {
+                document.getElementById('days-remaining').textContent = `${daysRemaining} days`;
+            } else {
+                document.getElementById('days-remaining').textContent = '30 days';
+            }
+            
+            // Update next billing
+            document.getElementById('next-billing').textContent = trialEnd.toLocaleDateString();
+            
+            // Update billing modal
+            document.getElementById('billing-current-plan').textContent = planName;
+            document.getElementById('billing-next-date').textContent = trialEnd.toLocaleDateString();
+            
+            // Update dashboard action button based on plan
+            const actionButton = document.getElementById('upgrade-btn');
+            if (plan === 'trial') {
+                actionButton.textContent = 'Upgrade Plan';
+                actionButton.onclick = showUpgradeModal;
+            } else {
+                actionButton.textContent = 'Manage Subscription';
+                actionButton.onclick = manageBilling;
+                actionButton.className = 'btn btn-outline'; // Change to outline style for manage action
+            }
+        }
+
+        function updateLevelsGrid() {
+            const grid = document.getElementById('levels-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            userStocks.forEach(ticker => {
+                const stock = stockData[ticker] || generateMockStockData(ticker);
+                const card = createLevelCard(stock);
+                grid.appendChild(card);
+            });
+        }
+
+        function createLevelCard(stock) {
+            const card = document.createElement('div');
+            card.className = 'level-card';
+            
+            const changeClass = stock.changeType === 'positive' ? 'style="color: var(--success)"' : 'style="color: var(--danger)"';
+            
+            card.innerHTML = `
+                <div class="level-header">
+                    <div style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1;">
+                        <div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">${stock.symbol}</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">${stock.name}</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: 700;">${stock.currentPrice}</div>
+                            <div ${changeClass} style="font-size: 0.875rem;">${stock.change}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-body">
+                    <div class="levels-row">
+                        <div>
+                            <h4 style="color: var(--danger); font-size: 0.875rem; margin-bottom: 0.5rem;">SUPPORT</h4>
+                            ${stock.support.map(level => `<div style="font-weight: 600; color: var(--danger); padding: 0.25rem 0;">${level}</div>`).join('')}
+                        </div>
+                        <div>
+                            <h4 style="color: var(--success); font-size: 0.875rem; margin-bottom: 0.5rem;">RESISTANCE</h4>
+                            ${stock.resistance.map(level => `<div style="font-weight: 600; color: var(--success); padding: 0.25rem 0;">${level}</div>`).join('')}
+                        </div>
+                    </div>
+                    <div class="accuracy-section">
+                        <div class="accuracy-badge">${stock.accuracy.correct}/${stock.accuracy.total} Accurate</div>
+                        <div class="update-time">
+                            ${new Date(stock.lastUpdated).toLocaleTimeString()}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Subscription Functions
+        function selectPlan(planType) {
+            console.log('Selecting plan:', planType); // Debug log
+            
+            if (!currentUser && planType !== 'trial') {
+                hideModal('upgrade-modal');
+                showLoginModal();
+                return;
+            }
+            
+            if (planType === 'trial') {
+                startFreeTrial();
+                return;
+            }
+            
+            // Initialize Stripe checkout (demo mode)
+            initiateStripeCheckout(planType);
+        }
+
+        function startFreeTrial() {
+            if (!currentUser) {
+                // Show login modal with a message about starting trial
+                showLoginModal();
+                return;
+            }
+            
+            // Update user subscription to trial
+            currentUser.subscription.plan = 'trial';
+            currentUser.subscription.status = 'active';
+            currentUser.subscription.trialEnds = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+            
+            saveUserSession();
+            showPage('dashboard');
+            
+            // Show success message after a brief delay
+            setTimeout(() => {
+                alert('🎉 Free trial activated! Welcome to QuantAnalytica.');
+            }, 500);
+        }
+
+        function initiateStripeCheckout(planType) {
+            const prices = {
+                starter: 4.99,
+                growth: 9.99,
+                pro: 19.99
+            };
+            
+            // Store selected plan for payment modal
+            window.selectedPlan = {
+                type: planType,
+                name: planConfigs[planType].name,
+                price: prices[planType]
+            };
+            
+            // Hide upgrade modal and show payment modal
+            hideModal('upgrade-modal');
+            showPaymentModal();
+        }
+
+        function showPaymentModal() {
+            const modal = document.getElementById('payment-modal');
+            if (!modal) return;
+            
+            const plan = window.selectedPlan;
+            
+            // Update payment modal content
+            document.getElementById('payment-plan-name').textContent = plan.name;
+            document.getElementById('payment-plan-price').textContent = `${plan.price}`;
+            document.getElementById('payment-total').textContent = `${plan.price}`;
+            
+            showModal('payment-modal');
+        }
+
+        function processPayment() {
+            const payButton = document.getElementById('pay-button');
+            const originalText = payButton.innerHTML;
+            
+            // Show processing state
+            payButton.innerHTML = '🔄 Processing Payment...';
+            payButton.disabled = true;
+            
+            // Add processing animation to the whole form
+            const paymentForm = document.getElementById('payment-form');
+            paymentForm.style.opacity = '0.7';
+            paymentForm.style.pointerEvents = 'none';
+            
+            // Simulate Stripe payment processing
+            setTimeout(() => {
+                payButton.innerHTML = '✅ Payment Successful!';
+                
+                setTimeout(() => {
+                    // Update user subscription
+                    const plan = window.selectedPlan;
+                    currentUser.subscription.plan = plan.type;
+                    currentUser.subscription.status = 'active';
+                    currentUser.subscription.trialEnds = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days from now
+                    
+                    saveUserSession();
+                    updateUserDashboard();
+                    updateStockTags(); // Update stock limits
+                    
+                    // Hide payment modal
+                    hideModal('payment-modal');
+                    
+                    // Show success modal
+                    showSuccessModal();
+                    
+                    // Reset button state
+                    payButton.innerHTML = originalText;
+                    payButton.disabled = false;
+                    paymentForm.style.opacity = '1';
+                    paymentForm.style.pointerEvents = 'auto';
+                }, 1000);
+            }, 2000); // 2 second processing time
+        }
+
+        function showSuccessModal() {
+            // Update success modal with plan details
+            const plan = window.selectedPlan;
+            document.getElementById('success-plan-name').textContent = plan.name + ' Plan';
+            
+            showModal('success-modal');
+            
+            // Auto-close success modal after 4 seconds (increased for reading time)
+            setTimeout(() => {
+                hideModal('success-modal');
+                showPage('dashboard');
+            }, 4000);
+        }
+
+        function goBackToUpgrade() {
+            hideModal('payment-modal');
+            showUpgradeModal();
+        }
+
+        // New Service Page Functions
+        function showComingSoonModal(serviceName) {
+            document.getElementById('coming-soon-title').textContent = serviceName + ' - Coming Soon';
+            document.getElementById('coming-soon-service').textContent = serviceName;
+            
+            // Store service name for waitlist
+            window.currentService = serviceName.toLowerCase().replace(/\s+/g, '-');
+            
+            showModal('coming-soon-modal');
+        }
+
+        function joinWaitlist(serviceType) {
+            // If called directly with service type
+            window.currentService = serviceType;
+            showComingSoonModal(getServiceDisplayName(serviceType));
+        }
+
+        function getServiceDisplayName(serviceType) {
+            const serviceNames = {
+                'trading-bot': 'Trading Bot',
+                'signals': 'Live Signals',
+                'backtesting': 'Backtesting',
+                'education': 'Education Hub'
+            };
+            return serviceNames[serviceType] || serviceType;
+        }
+
+        function handleWaitlistSubmit(e) {
+            e.preventDefault();
+            
+            const emailInput = e.target.querySelector('input[type="email"]');
+            if (!emailInput) return;
+            
+            const email = emailInput.value;
+            const serviceName = getServiceDisplayName(window.currentService || 'unknown');
+            
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            if (!submitBtn) return;
+            
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '🔄 Adding you to waitlist...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                try {
+                    // Store waitlist signup (in real app, this would be an API call)
+                    const waitlistData = {
+                        email: email,
+                        service: window.currentService,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    // Save to localStorage for demo
+                    const existingWaitlist = JSON.parse(localStorage.getItem('quantanalytica_waitlist') || '[]');
+                    existingWaitlist.push(waitlistData);
+                    localStorage.setItem('quantanalytica_waitlist', JSON.stringify(existingWaitlist));
+                    
+                    // Hide coming soon modal and show success
+                    hideModal('coming-soon-modal');
+                    const serviceNameEl = document.getElementById('waitlist-service-name');
+                    if (serviceNameEl) {
+                        serviceNameEl.textContent = serviceName;
+                    }
+                    showModal('waitlist-success-modal');
+                    
+                    // Reset form
+                    e.target.reset();
+                    
+                    // Track conversion (in real app)
+                    console.log('Waitlist signup:', waitlistData);
+                } catch (error) {
+                    console.error('Waitlist signup error:', error);
+                    alert('Something went wrong. Please try again.');
+                } finally {
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            }, 1500);
+        }
+
+        function manageBilling() {
+            showModal('billing-modal');
+        }
+
+        function updatePaymentMethod() {
+            alert('Redirecting to Stripe Customer Portal...');
+            // In real app: window.location.href = stripeCustomerPortalUrl;
+        }
+
+        function downloadInvoices() {
+            alert('Invoices would be downloaded here');
+        }
+
+        function cancelSubscription() {
+            const confirmed = confirm('Are you sure you want to cancel your subscription?');
+            if (confirmed) {
+                currentUser.subscription.status = 'cancelled';
+                saveUserSession();
+                hideModal('billing-modal');
+                alert('Subscription cancelled. You can continue using QuantAnalytica until your current billing period ends.');
+            }
+        }
+
+        // Utility Functions
+        function saveUserSession() {
+            if (currentUser) {
+                localStorage.setItem('quantanalytica_user', JSON.stringify(currentUser));
+            }
+        }
+
+        function saveUserPreferences() {
+            if (currentUser) {
+                currentUser.preferences.stocks = userStocks;
+                saveUserSession();
+            }
+        }
+
+        function showLoading(button) {
+            if (!button) return;
+            
+            const originalText = button.innerHTML;
+            button.innerHTML = '<span class="loading"></span> Processing...';
+            button.disabled = true;
+            
+            // Store original state for restoration
+            button.dataset.originalText = originalText;
+        }
+
+        function hideLoading(button) {
+            if (!button) return;
+            
+            const originalText = button.dataset.originalText || button.innerHTML;
+            button.innerHTML = originalText;
+            button.disabled = false;
+        }
+
+        // Initialize Stripe only when needed (Demo Mode)
+        function initializeStripe() {
+            // In demo mode, we'll simulate Stripe without actually loading it
+            // For production: return Stripe('pk_test_your_actual_key');
+            return null;
+        }
+        
+        // Click outside modal to close (improved handling)
+        document.addEventListener('click', function(e) {
+            // Only close if clicking directly on the modal backdrop
+            if (e.target.classList.contains('modal') && !e.target.closest('.modal-content')) {
+                const modalId = e.target.id;
+                if (modalId) {
+                    hideModal(modalId);
+                }
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Find any open modal and close it
+                const openModal = document.querySelector('.modal:not(.hidden)');
+                if (openModal) {
+                    hideModal(openModal.id);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
